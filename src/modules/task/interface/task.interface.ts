@@ -3,7 +3,7 @@ import { ICategoryRecord } from 'src/modules/category/interface/category.interfa
 
 export interface ITask {
   title: string;
-  description: string;
+  description?: string;
   userId: string;
   user?: IUserRecord;
   categoryId: string;

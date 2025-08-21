@@ -19,6 +19,10 @@ export class CreateTaskDto {
 
   @IsString()
   @IsNotEmpty()
+  userId: string;
+
+  @IsString()
+  @IsNotEmpty()
   categoryId: string;
 
   @IsEnum(TaskStatus)

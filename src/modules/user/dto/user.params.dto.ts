@@ -1,7 +1,6 @@
-import { IsString, IsUUID } from 'class-validator';
-
-export class UserParams {
-  @IsString({ message: 'User ID must be a string' })
-  @IsUUID('4', { message: 'User ID must be a valid UUIDv4' })
-  userId: string;
+import { BaseParams } from '../../../common/dto/base.params.dto';
+export class UserParams extends BaseParams {
+  get userId(): string {
+    return this.id;
+  }
 }
