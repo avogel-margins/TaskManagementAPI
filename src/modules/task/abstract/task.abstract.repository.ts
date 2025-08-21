@@ -1,14 +1,9 @@
-import { CreateTaskDto } from '../dto/create-task.dto';
-import { UpdateTaskDto } from '../dto/update-task.dto';
+import { AbstractRepository } from 'src/common/abstract/abstract.repository';
 import { ITaskRecord } from '../interface/task.interface';
+import { Task } from '../entities/task.entity';
 
-export abstract class AbstractTaskRepository {
-  abstract create(taskData: CreateTaskDto): Promise<ITaskRecord>;
-  abstract findAll(): Promise<ITaskRecord[] | null>;
-  abstract findById(id: string): Promise<ITaskRecord | null>;
-  abstract update(
-    id: string,
-    taskData: UpdateTaskDto,
-  ): Promise<ITaskRecord | null>;
-  abstract delete(id: string): Promise<boolean>;
+export abstract class AbstractTaskRepository extends AbstractRepository<Task> {
+  abstract getAllTasks(): Promise<ITaskRecord[] | null>;
+  abstract getTaskById(id: string): Promise<ITaskRecord | null>;
+  abstract getTasksByTitle(title: string): Promise<ITaskRecord[] | null>;
 }

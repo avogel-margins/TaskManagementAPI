@@ -6,6 +6,6 @@ export abstract class AbstractCategoryService {
   abstract updateCategory(
     id: string,
     data: Partial<ICategory>,
-  ): Promise<ICategoryRecord>;
+  ): Promise<boolean>;
   abstract deleteCategory(id: string): Promise<boolean>;
 }
