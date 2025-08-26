@@ -19,8 +19,8 @@ export class UserController {
   constructor(private readonly userService: AbstractUserService) {}
 
   @Get(':id')
-  getUserById(@Param() { userId }: UserParams) {
-    return this.userService.getUserById(userId);
+  getUserById(@Param() { id }: UserParams) {
+    return this.userService.getUserById(id);
   }
 
   @Post()
@@ -29,12 +29,17 @@ export class UserController {
   }
 
   @Patch(':id')
-  updateUser(@Param() { userId }: UserParams, @Body() data: UpdateUserDto) {
-    return this.userService.updateUser(userId, data);
+  updateUser(@Param() { id }: UserParams, @Body() data: UpdateUserDto) {
+    return this.userService.updateUser(id, data);
   }
 
   @Delete(':id')
-  deleteUser(@Param() { userId }: UserParams) {
-    return this.userService.deleteUser(userId);
+  deleteUser(@Param() { id }: UserParams) {
+    return this.userService.deleteUser(id);
+  }
+
+  @Get()
+  getAllUsers() {
+    return this.userService.getAllUsers();
   }
 }

@@ -1,6 +1,6 @@
 import { DocumentBuilder, OpenAPIObject } from '@nestjs/swagger';
 
-export const swaggerConfig = (
+export const getSwaggerConfig = (
   title: string,
   description: string,
   version: string,

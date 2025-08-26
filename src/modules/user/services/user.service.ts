@@ -29,6 +29,10 @@ export class UserService extends AbstractUserService {
     return user;
   }
 
+  async getAllUsers(): Promise<IUserRecord[] | null> {
+    return await this.userRepository.getAllUsers();
+  }
+
   async updateUser(id: string, data: Partial<IUser>): Promise<boolean> {
     const existingUser = await this.userRepository.getUserById(id);
     if (!existingUser) {
